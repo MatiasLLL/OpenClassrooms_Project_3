@@ -207,7 +207,7 @@ formAjoutProjet.addEventListener("submit", function (e) {
     })
         .then(work => {
             console.log(work)
-            if (data.ok) {
+            if (work.ok) {
                 fetchProjets([work])
                 fetchProjets([work], "#gallery-modal", true)
                 const contenuModal = document.getElementById("contenu-modal")
