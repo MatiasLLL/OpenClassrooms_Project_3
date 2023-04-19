@@ -1,0 +1,82 @@
+#nav-login {
+    font-weight: 600;
+}
+
+#login {
+    width: 50%;
+    margin: auto;
+    margin-top: 11em;
+    margin-bottom: 28em;
+}
+
+#login>* {
+    text-align: center;
+}
+
+#login h2 {
+    margin-bottom: 20px;
+}
+
+#login p {
+    font-size: 1.3em;
+}
+
+#login form {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#login input {
+    min-height: 51px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login label {
+    margin: 2.5em 0 0.6em 0;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #3D3D3D;
+}
+
+#login textarea {
+    min-height: 20em;
+    margin-bottom: 35px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="submit"] {
+    margin: 2em auto;
+    margin-bottom: 2.5em;
+    text-align: center;
+    border-radius: 60px;
+}
+
+input#email,
+input#password {
+    min-height: 5em;
+    margin: 0
+}
+
+#error {
+    display: flex;
+    justify-content: center;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #ff0c16;
+    margin-top: 2em;
+}
+
+#mot-de-passe-oublie {
+    display: flex;
+    justify-content: center;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #3D3D3D;
+}

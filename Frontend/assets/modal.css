@@ -1,0 +1,274 @@
+#contenu-modal,
+#contenu-2ndmodal {
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+#contenu-2ndmodal {
+	background: rgba(0, 0, 0, 0.0);
+}
+
+#modal-wrapper,
+#modal-2ndwrapper {
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 46%;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+}
+
+#modal-wrapper h3,
+#modal-2ndwrapper h3 {
+	display: flex;
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 1.8em;
+	margin-top: 145px;
+	margin-bottom: 50px;
+}
+
+#close-modal {
+	position: absolute;
+	top: 25px;
+	right: 29vw;
+	text-decoration: none;
+	border: none;
+	width: 2.2em;
+	background-color: #FFFFFF;
+}
+
+#gallery-modal {
+	width: 70%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 7px;
+	grid-row-gap: 2px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+#gallery-modal figure {
+	height: 100%;
+	width: 100%;
+	font-size: 0.6em;
+}
+
+.figure-modal {
+	position: relative;
+}
+
+.figure-modal svg {
+	position: absolute;
+	padding: 2px;
+	border-radius: 2px;
+	top: 5px;
+	right: 5px;
+	width: 15px;
+	height: 15px;
+	background: #000;
+	color: #FFF;
+}
+
+#gallery-modal img {
+	max-height: 100%;
+	width: 100%;
+}
+
+#gallery-modal button {
+	width: 10%;
+	color: #FFF;
+	background-color: #000;
+	margin: 2px;
+	border-radius: 1px;
+}
+
+#gallery-modal figcaption {
+	margin-top: 3px;
+	font-size: 1.2em;
+	margin-bottom: 8px;
+}
+
+#modal-wrapper input,
+#valider {
+	align-items: center;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 1.2em;
+	max-width: 237px;
+	min-height: 36px;
+	margin: 1%;
+	margin-top: 35px;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#supression-gallerie {
+	display: flex;
+	justify-content: center;
+	width: 70%;
+	margin-top: 15px;
+	font-family: 'Syne';
+	font-weight: 400;
+	font-size: 1.2em;
+	height: auto;
+	color: #D65353;
+	background-color: #FFFFFF;
+	border: none;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+/* Deuxième page modale */
+
+#modal-2ndwrapper {
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0;
+	row-gap: 10px;
+}
+
+#modal-2ndwrapper h3 {
+	margin-top: 150px;
+	margin-bottom: 9px;
+}
+
+#fleche-retour {
+	position: absolute;
+	top: 25px;
+	left: 29vw;
+	text-decoration: none;
+	border: none;
+	width: 2.1em;
+	background-color: #FFFFFF;
+}
+
+#close-2ndmodal {
+	position: absolute;
+	top: 25px;
+	right: 29vw;
+	text-decoration: none;
+	border: none;
+	width: 2.2em;
+	background-color: #FFFFFF;
+}
+
+#modal-2ndwrapper form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#modal-2ndwrapper input, #modal-2ndwrapper select {
+	width: 100%;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#fieldset-file {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	row-gap: 13px;
+	align-items: center;
+	background: #E8F1F6;
+	border-radius: 3px;
+	margin: 7% 0 6% 0;
+	width: 28em;
+	height: 13em;
+}
+
+#fieldset-file svg {
+	width: 5em;
+	color: #B9C5CC;
+	margin-top: 12px;
+}
+
+#label-file {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    cursor: pointer;
+    color: #306685;
+	background: #CBD6DC;
+	width: 43%;
+	height: 36px;
+	border: none;
+	text-align: center;
+	border-radius: 50px;
+	font-weight: 500;
+	font-size: 1.1em;
+}
+
+#fieldset-file input {
+	display: none;
+	margin: 0;
+}
+
+#fieldset-file p {
+	margin-bottom: 20px;
+	font-size: 0.8em;
+	color: #444444;
+}
+
+#fieldset-file img {
+	position: absolute;
+	height: 13em;
+}
+
+#fieldset-text {
+	margin-top: 10px;
+	font-weight: 500;
+	padding-bottom: 4%;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+#fieldset-text label {
+	color: #3D3D3D;
+}
+
+#fieldset-text input, #fieldset-text select {
+	background-color: #FFFFFF;
+	margin: 0.9em 0 2em 0;
+}
+
+input#valider {
+	display: block;
+	font-weight: 700;
+	font-size: 1.1em;
+	background: #A7A7A7;
+	text-align: center;
+	height: 36px;
+	margin-bottom: 40px;
+	margin-top: 8%;
+}
+
+input#valider:hover {
+	background-color: #1D6154;
+}
+
+#error2 {
+	position: relative;
+	top: 17px;
+	font-family: 'Syne';
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #ff0c16;
+}
+
