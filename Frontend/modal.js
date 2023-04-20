@@ -29,8 +29,8 @@ closeModal.forEach(close => {
 })
 
 window.onclick = function (event) {
-    var myBox = document.getElementById("modal-wrapper");
-    var my2ndBox = document.getElementById("modal-2ndwrapper");    
+    const myBox = document.getElementById("modal-wrapper");
+    const my2ndBox = document.getElementById("modal-2ndwrapper");    
     if ((event.target.contains(myBox) && event.target !== myBox) || (event.target.contains(my2ndBox) && event.target !== my2ndBox)) {
             contenuModal.style.display = "none";
             contenu2ndModal.style.display = "none"
