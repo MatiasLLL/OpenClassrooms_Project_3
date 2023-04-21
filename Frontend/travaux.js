@@ -194,6 +194,10 @@ formAjoutProjet.addEventListener("submit", function (e) {
     data.append("image", e.target.querySelector('[name="image-file"]').files[0]);
     data.append("title", e.target.querySelector('[name="titre"]').value);
     data.append("category", parseInt(e.target.querySelector('[name="categorie"]').value));
+    // Vérification des champs remplis
+    if ((e.target.querySelector('[name="image-file"]').value !== '') && (e.target.querySelector('[name="titre"]').value !== '') && (e.target.querySelector('[name="categorie"]').value !== '')) {
+        var allFields = true
+    }
 
     fetch("http://localhost:5678/api/works", {
         method: "POST",
@@ -201,25 +205,24 @@ formAjoutProjet.addEventListener("submit", function (e) {
             "Authorization": `Bearer ${token}`
         },
         body: data
-    }).then(resp => {
+    }).then((resp) => {
         console.log(resp)
         return resp.json()
+    }).then((work) => {
+        console.log(work)
+        if (allFields) {
+            fetchProjets([work]);
+            fetchProjets([work], "#gallery-modal", true);
+            const contenuModal = document.getElementById("contenu-modal");
+            const contenu2ndModal = document.getElementById("contenu-2ndmodal");
+            contenuModal.style.display = "none";
+            contenu2ndModal.style.display = "none"
+        } else {
+            throw new Error("Erreur dans l'un des champs")
+        }
+    }).catch((error) => {
+        document.getElementById("error2").textContent = error.message
     })
-        .then(work => {
-            console.log(work)
-            if (work.ok) {
-                fetchProjets([work])
-                fetchProjets([work], "#gallery-modal", true)
-                const contenuModal = document.getElementById("contenu-modal")
-                const contenu2ndModal = document.getElementById("contenu-2ndmodal")
-                contenuModal.style.display = "none";
-                contenu2ndModal.style.display = "none"
-            } else {
-                throw new Error("Erreur dans l'un des champs")
-            }
-        }).catch((error) => {
-            document.getElementById("error2").textContent = error.message
-        })
 
 })
 
