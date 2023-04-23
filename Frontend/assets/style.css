@@ -304,6 +304,12 @@ li img {
 	border: none;
 }
 
+#filtres button:focus {
+	color: white;
+	background-color: #1D6154;
+	border: none;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
