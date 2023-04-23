@@ -485,9 +485,9 @@ figure svg {
 }
 
 #modifier-2 {
-	position: relative;
-	bottom: 88px;
-	left: 46.5vw;
+	position: absolute;
+	top: 787px;
+	left: 768px;
 	font-weight: 400;
 	font-size: 14px;
 	text-decoration: none;
