@@ -167,6 +167,10 @@ header {
 	width: 100%;
 }
 
+button, input[type="submit"], .btn-cursor {
+	cursor: pointer;
+}
+
 #logo-nav {
 	display: flex;
 	width: 100%;
