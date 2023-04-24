@@ -175,6 +175,7 @@ document.querySelector('[name="image-file"]').addEventListener('change', (e) => 
     const src = URL.createObjectURL(file);
     const img = document.createElement("img");
     img.src = src;
+    img.id = "previewImg"
     const previewLabel = document.getElementById("label-file");
     previewLabel.style.display = "none";
     const previewElement = document.getElementById("fieldset-file");
@@ -184,8 +185,16 @@ document.querySelector('[name="image-file"]').addEventListener('change', (e) => 
 // Affichage vide du selecteur catégorie de la 2nd modal
 document.getElementById("categorie").selectedIndex = -1;
 
-// Création fontion ajout work
 const formAjoutProjet = document.querySelector("#form-ajout");
+function clearForm() {
+    formAjoutProjet.reset()
+    document.getElementById("previewImg").remove()
+    document.getElementById("categorie").selectedIndex = -1;
+    const previewLabel = document.getElementById("label-file");
+    previewLabel.style.display = "flex";
+}
+
+// Création fontion ajout work
 formAjoutProjet.addEventListener("submit", function (e) {
     e.preventDefault();
     // Création de la charge utile au format JSON
@@ -196,33 +205,29 @@ formAjoutProjet.addEventListener("submit", function (e) {
     data.append("category", parseInt(e.target.querySelector('[name="categorie"]').value));
     // Vérification des champs remplis
     if ((e.target.querySelector('[name="image-file"]').value !== '') && (e.target.querySelector('[name="titre"]').value !== '') && (e.target.querySelector('[name="categorie"]').value !== '')) {
-        var allFields = true
-    }
 
-    fetch("http://localhost:5678/api/works", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${token}`
-        },
-        body: data
-    }).then((resp) => {
-        console.log(resp)
-        return resp.json()
-    }).then((work) => {
-        console.log(work)
-        if (allFields) {
+        fetch("http://localhost:5678/api/works", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            },
+            body: data
+        }).then((resp) => {
+            return resp.json()
+        }).then((work) => {
             fetchProjets([work]);
             fetchProjets([work], "#gallery-modal", true);
             const contenuModal = document.getElementById("contenu-modal");
             const contenu2ndModal = document.getElementById("contenu-2ndmodal");
             contenuModal.style.display = "none";
-            contenu2ndModal.style.display = "none"
-        } else {
-            throw new Error("Erreur dans l'un des champs")
-        }
-    }).catch((error) => {
-        document.getElementById("error2").textContent = error.message
-    })
-
+            contenu2ndModal.style.display = "none";
+            clearForm()
+            // formAjoutProjet.clear();
+        }).catch((error) => {
+            document.getElementById("error2").textContent = error.message
+        })
+    } else {
+        document.getElementById("error2").textContent = "Erreur: merci de bien remplir tous les champs"
+    }
 })
 
