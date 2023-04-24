@@ -185,6 +185,7 @@ document.querySelector('[name="image-file"]').addEventListener('change', (e) => 
 // Affichage vide du selecteur catégorie de la 2nd modal
 document.getElementById("categorie").selectedIndex = -1;
 
+// Réinitialisation formulaire après envoie
 const formAjoutProjet = document.querySelector("#form-ajout");
 function clearForm() {
     formAjoutProjet.reset()
@@ -222,7 +223,6 @@ formAjoutProjet.addEventListener("submit", function (e) {
             contenuModal.style.display = "none";
             contenu2ndModal.style.display = "none";
             clearForm()
-            // formAjoutProjet.clear();
         }).catch((error) => {
             document.getElementById("error2").textContent = error.message
         })
