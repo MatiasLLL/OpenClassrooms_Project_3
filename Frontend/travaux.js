@@ -62,12 +62,52 @@ getProjects(url).then((wrk) => {
 
 // Création des boutons de filtres
 const boutonTous = document.getElementById('btn-filtrer-tous');
+const boutonObjets = document.getElementById('btn-filtrer-objets');
+const boutonAppartements = document.getElementById('btn-filtrer-appartements');
+const boutonHotelsRestaurants = document.getElementById('btn-filtrer-hotels-restaurants');
+const filtresBouton = document.querySelectorAll("#filtres button")
+
+filtresBouton.forEach(e => {
+    e.addEventListener("mouseover", () => {
+        e.style.color = "#FFFFFF";
+        e.style.backgroundColor = "#1D6154";
+        e.style.border = "none";
+    })
+})
+
 boutonTous.addEventListener("click", () => {
+    filtresBouton.forEach(e => {
+        e.style.color = "#1D6154";
+        e.style.backgroundColor = "#FFFEF8";
+        e.style.border = "1.5px solid #1D6154";
+    })
+    boutonTous.addEventListener("mouseleave", () => {
+        boutonTous.style.color = "#FFFFFF";
+        boutonTous.style.backgroundColor = "#1D6154";
+        boutonTous.style.border = "none";
+    })
+    boutonObjets.addEventListener("mouseleave", () => {
+        boutonObjets.style.color = "#1D6154";
+        boutonObjets.style.backgroundColor = "#FFFEF8";
+        boutonObjets.style.border = "1.5px solid #1D6154";
+    })
+    boutonAppartements.addEventListener("mouseleave", () => {
+        boutonAppartements.style.color = "#1D6154";
+        boutonAppartements.style.backgroundColor = "#FFFEF8";
+        boutonAppartements.style.border = "1.5px solid #1D6154";
+    })
+    boutonHotelsRestaurants.addEventListener("mouseleave", () => {
+        boutonHotelsRestaurants.style.color = "#1D6154";
+        boutonHotelsRestaurants.style.backgroundColor = "#FFFEF8";
+        boutonHotelsRestaurants.style.border = "1.5px solid #1D6154";
+    })
+    document.querySelector("#filtres button:first-of-type").style.color = "#FFFFFF";
+    document.querySelector("#filtres button:first-of-type").style.backgroundColor = "#1D6154";
+    document.querySelector("#filtres button:first-of-type").style.border = "none";
     document.querySelector(".gallery").innerHTML = "";
     fetchProjets(works);
 });
 
-const boutonObjets = document.getElementById('btn-filtrer-objets');
 boutonObjets.addEventListener("click", () => {
     const projetsFiltreesObjets = works.filter((work) => {
         if (work.category.name == "Objets") {
@@ -75,11 +115,38 @@ boutonObjets.addEventListener("click", () => {
         }
         return false;
     });
+    filtresBouton.forEach(e => {
+        e.style.color = "#1D6154";
+        e.style.backgroundColor = "#FFFEF8";
+        e.style.border = "1.5px solid #1D6154";
+    })
+    boutonTous.addEventListener("mouseleave", () => {
+        boutonTous.style.color = "#1D6154";
+        boutonTous.style.backgroundColor = "#FFFEF8";
+        boutonTous.style.border = "1.5px solid #1D6154";
+    })
+    boutonObjets.addEventListener("mouseleave", () => {
+        boutonObjets.style.color = "#FFFFFF";
+        boutonObjets.style.backgroundColor = "#1D6154";
+        boutonObjets.style.border = "none";
+    })
+    boutonAppartements.addEventListener("mouseleave", () => {
+        boutonAppartements.style.color = "#1D6154";
+        boutonAppartements.style.backgroundColor = "#FFFEF8";
+        boutonAppartements.style.border = "1.5px solid #1D6154";
+    })
+    boutonHotelsRestaurants.addEventListener("mouseleave", () => {
+        boutonHotelsRestaurants.style.color = "#1D6154";
+        boutonHotelsRestaurants.style.backgroundColor = "#FFFEF8";
+        boutonHotelsRestaurants.style.border = "1.5px solid #1D6154";
+    })
+    document.querySelector("#btn-filtrer-objets").style.color = "#FFFFFF";
+    document.querySelector("#btn-filtrer-objets").style.backgroundColor = "#1D6154";
+    document.querySelector("#btn-filtrer-objets").style.border = "none";
     document.querySelector(".gallery").innerHTML = "";
     fetchProjets(projetsFiltreesObjets);
 });
 
-const boutonAppartements = document.getElementById('btn-filtrer-appartements');
 boutonAppartements.addEventListener("click", () => {
     const projetsFiltreesAppartements = works.filter((work) => {
         if (work.category.name == "Appartements") {
@@ -87,11 +154,38 @@ boutonAppartements.addEventListener("click", () => {
         }
         return false;
     });
+    filtresBouton.forEach(e => {
+        e.style.color = "#1D6154";
+        e.style.backgroundColor = "#FFFEF8";
+        e.style.border = "1.5px solid #1D6154";
+    })
+    boutonTous.addEventListener("mouseleave", () => {
+        boutonTous.style.color = "#1D6154";
+        boutonTous.style.backgroundColor = "#FFFEF8";
+        boutonTous.style.border = "1.5px solid #1D6154";
+    })
+    boutonObjets.addEventListener("mouseleave", () => {
+        boutonObjets.style.color = "#1D6154";
+        boutonObjets.style.backgroundColor = "#FFFEF8";
+        boutonObjets.style.border = "1.5px solid #1D6154";
+    })
+    boutonAppartements.addEventListener("mouseleave", () => {
+        boutonAppartements.style.color = "#FFFFFF";
+        boutonAppartements.style.backgroundColor = "#1D6154";
+        boutonAppartements.style.border = "none";
+    })
+    boutonHotelsRestaurants.addEventListener("mouseleave", () => {
+        boutonHotelsRestaurants.style.color = "#1D6154";
+        boutonHotelsRestaurants.style.backgroundColor = "#FFFEF8";
+        boutonHotelsRestaurants.style.border = "1.5px solid #1D6154";
+    })
+    document.querySelector("#btn-filtrer-appartements").style.color = "#FFFFFF";
+    document.querySelector("#btn-filtrer-appartements").style.backgroundColor = "#1D6154";
+    document.querySelector("#btn-filtrer-appartements").style.border = "none";
     document.querySelector(".gallery").innerHTML = "";
     fetchProjets(projetsFiltreesAppartements);
 });
 
-const boutonHotelsRestaurants = document.getElementById('btn-filtrer-hotels-restaurants');
 boutonHotelsRestaurants.addEventListener("click", () => {
     const projetsFiltreesHotelsRestaurants = works.filter((work) => {
         if (work.category.name == "Hotels & restaurants") {
@@ -99,10 +193,37 @@ boutonHotelsRestaurants.addEventListener("click", () => {
         }
         return false;
     });
+    filtresBouton.forEach(e => {
+        e.style.color = "#1D6154";
+        e.style.backgroundColor = "#FFFEF8";
+        e.style.border = "1.5px solid #1D6154";
+    })
+    boutonTous.addEventListener("mouseleave", () => {
+        boutonTous.style.color = "#1D6154";
+        boutonTous.style.backgroundColor = "#FFFEF8";
+        boutonTous.style.border = "1.5px solid #1D6154";
+    })
+    boutonObjets.addEventListener("mouseleave", () => {
+        boutonObjets.style.color = "#1D6154";
+        boutonObjets.style.backgroundColor = "#FFFEF8";
+        boutonObjets.style.border = "1.5px solid #1D6154";
+    })
+    boutonAppartements.addEventListener("mouseleave", () => {
+        boutonAppartements.style.color = "#1D6154";
+        boutonAppartements.style.backgroundColor = "#FFFEF8";
+        boutonAppartements.style.border = "1.5px solid #1D6154";
+    })
+    boutonHotelsRestaurants.addEventListener("mouseleave", () => {
+        boutonHotelsRestaurants.style.color = "#FFFFFF";
+        boutonHotelsRestaurants.style.backgroundColor = "#1D6154";
+        boutonHotelsRestaurants.style.border = "none";
+    })
+    document.querySelector("#btn-filtrer-hotels-restaurants").style.color = "#FFFFFF";
+    document.querySelector("#btn-filtrer-hotels-restaurants").style.backgroundColor = "#1D6154";
+    document.querySelector("#btn-filtrer-hotels-restaurants").style.border = "none";
     document.querySelector(".gallery").innerHTML = "";
     fetchProjets(projetsFiltreesHotelsRestaurants);
 });
-
 
 // Ajout des éléments apparaissant à la connexion
 const editBarre = document.getElementById("edit-barre")
